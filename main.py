@@ -7,6 +7,7 @@ def main():
     wallet.generate_unique_id()
     wallet.save()
     print(wallet.unique_id)
+    wallet.load()
 
 
 if __name__ == "__main__":
