@@ -1,2 +1,2 @@
 class Chain:
-    block = ''
+    blocks = {}
