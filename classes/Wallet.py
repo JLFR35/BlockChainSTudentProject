@@ -10,7 +10,7 @@ class Wallet:
         self.history = {}
 
     def generate_unique_id(self):
-        self.unique_id = str(uuid.uuid1())
+        self.unique_id = str(uuid.uuid4())
 
     def add_balance(self, value):
         self.balance = self.balance + value
@@ -19,8 +19,9 @@ class Wallet:
         self.balance = self.balance - value
 
     def save(self):
-        file = open("content/wallets/" + self.unique_id + ".json", "a")
+        file = open("content/wallets" + self.unique_id + ".json", "a")
         file.write(json.dumps(self.__dict__))
         file.close()
 
     #def load(self):
+
