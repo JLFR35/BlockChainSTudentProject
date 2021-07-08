@@ -9,7 +9,7 @@ class Block:
         self.base_hash = base_hash
         self.hash = hash
         self.parent_hash = parent_hash
-        self.transactions = {}
+        self.transactions = []
 
     def check_hash(self):
         generated_hash = hashlib.sha256(str(self.base_hash).encode()).hexdigest()
@@ -20,7 +20,7 @@ class Block:
 
     def add_transaction(self, receiver_wallet, transmitter_wallet, amount):
         transaction = {"receiver": receiver_wallet, "transmitter": transmitter_wallet, "amount": amount}
-        self.transactions.update(transaction)
+        self.transactions.append(transaction)
 
     def get_weight(self):
         os.path.getsize("content/blocs/" + self.hash + ".json")
