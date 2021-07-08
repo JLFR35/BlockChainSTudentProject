@@ -3,9 +3,11 @@ import json
 
 
 class Wallet:
-    unique_id = ''
-    balance = 0
-    history = {}
+
+    def __init__(self):
+        self.unique_id = ''
+        self.balance = 0
+        self.history = {}
 
     def generate_unique_id(self):
         self.unique_id = str(uuid.uuid1())
@@ -20,3 +22,5 @@ class Wallet:
         file = open("content/wallets/" + self.unique_id + ".json", "a")
         file.write(json.dumps(self.__dict__))
         file.close()
+
+    #def load(self):

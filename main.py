@@ -4,7 +4,8 @@ from classes.Wallet import Wallet
 def main():
     print("Hello World!")
     wallet = Wallet()
-    print(wallet.generate_unique_id())
+    wallet.generate_unique_id()
+    print(wallet.unique_id)
 
 
 if __name__ == "__main__":
