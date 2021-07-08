@@ -1,5 +1,6 @@
 import uuid
 import json
+import os
 
 
 class Wallet:
@@ -10,7 +11,9 @@ class Wallet:
         self.history = {}
 
     def generate_unique_id(self):
-        if self.unique_id is None:
+        if os.path.isfile(self.unique_id):
+            print('file already exist')
+        else:
             self.unique_id = str(uuid.uuid4())
 
     def add_balance(self, value):
