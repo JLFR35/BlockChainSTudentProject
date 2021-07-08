@@ -12,7 +12,7 @@ class Block:
         self.transactions = []
 
     def check_hash(self):
-        generated_hash = hashlib.sha256(str(self.base_hash).encode()).hexdigest()
+        generated_hash = hashlib.sha256(str(self.base_hash).encode('utf-8')).hexdigest()
         if generated_hash == self.hash:
             return True
         else:
@@ -23,7 +23,8 @@ class Block:
         self.transactions.append(transaction)
 
     def get_weight(self):
-        os.path.getsize("content/blocs/" + self.hash + ".json")
+        length = len("content/blocs/" + self.hash + ".json")
+        print(str(length))
 
     def save(self):
         file = open("content/blocs" + self.hash + ".json", "w")
