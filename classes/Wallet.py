@@ -20,15 +20,16 @@ class Wallet:
         self.balance = self.balance - value
 
     def save(self):
-        file = open("content/wallets" + self.unique_id + ".json", "a")
+        file = open("content/wallets" + self.unique_id + ".json", "w")
         file.write(json.dumps(self.__dict__))
         file.close()
 
-    def load(self):
-        file = open("content/wallets" + self.unique_id + ".json", "r")
+    def load(self, wallet_uuid):
+        file = open("content/wallets" + wallet_uuid + ".json", "r")
         json_file = json.load(file)
         self.unique_id = json_file["unique_id"]
         self.balance = json_file["balance"]
         self.history = json_file["history"]
+        file.close()
 
 

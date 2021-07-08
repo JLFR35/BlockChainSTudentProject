@@ -3,11 +3,13 @@ from classes.Wallet import Wallet
 
 def main():
     print("Hello World!")
+    #wallet = Wallet()
+    #wallet.generate_unique_id()
+    #wallet.save()
+    #print(wallet.unique_id)
     wallet = Wallet()
-    wallet.generate_unique_id()
-    wallet.save()
+    wallet.load("a7afe60a-a194-4e3a-855f-0a557e8de665")
     print(wallet.unique_id)
-    wallet.load()
 
 
 if __name__ == "__main__":
