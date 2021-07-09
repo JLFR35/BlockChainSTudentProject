@@ -6,21 +6,25 @@ from classes.Block import Block
 
 class Chain:
 
-    def __init__(self):
+    def __init__(self, parent_hash):
         self.blocks = []
         self.last_transaction_number = 0
         self.hash = hash
+        self.first_bloc = "00"
+        self.parent_bloc = "00"
 
     # à refaire
-    # def generate_hash(self, bloc_hashed):
-    #     number = 0
-    #     hash = hashlib.sha256("number".encode()).hexdigest()
-    #     while not self.verify_hash(bloc_hashed):
-    #         number += 1
-    #         block_hashed = self.blocks
+    def generate_hash(self, hash):
+        number = 0
+        bloc_hashed = self.generate_string(number)
+        while not self.verify_hash(bloc_hashed):
+            number += 1
+            bloc_hashed = self.generate_string(number)
+            self.hash = self.blocks
 
-    def block_to_hash(self,number):
-        return hashlib.sha256(number.encode().hexdegiest())
+    @staticmethod
+    def generate_string(number):
+        return hashlib.sha256(f'{number}'.encode()).hexdigest()
 
     @staticmethod
     def verify_hash(bloc_hashed) -> bool :
@@ -41,4 +45,6 @@ class Chain:
             if k["hash"] == v:
                 return k
 
-    def add_transaction(self):
+    @staticmethod
+    def add_transaction():
+        Chain.add_transaction()
