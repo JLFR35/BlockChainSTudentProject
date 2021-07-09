@@ -34,5 +34,3 @@ class Wallet:
         self.balance = json_file["balance"]
         self.history = json_file["history"]
         file.close()
-
-
