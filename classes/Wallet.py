@@ -11,10 +11,12 @@ class Wallet:
         self.history = {}
 
     def generate_unique_id(self):
-        if os.path.isfile(self.unique_id):
+        self.unique_id = str(uuid.uuid4())
+        if os.path.isfile("content/wallets/" + self.unique_id + ".json"):
             print('file already exist')
         else:
             self.unique_id = str(uuid.uuid4())
+            return self.unique_id
 
     def add_balance(self, value):
         self.balance = self.balance + value

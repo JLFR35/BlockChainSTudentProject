@@ -48,3 +48,6 @@ class Chain:
     @staticmethod
     def add_transaction():
         Chain.add_transaction()
+
+    # A finir
+    # def transaction_is_valid(self):

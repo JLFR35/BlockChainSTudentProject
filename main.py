@@ -8,17 +8,19 @@ def main():
     # test main
     print("Hello World!")
 
-    # test creation objet wallet
-    # wallet0 = Wallet()
-    # wallet0.generate_unique_id()
-    # wallet0.save()
-    # print(wallet0.unique_id)
-    # wallet0.balance = 200
+    #test creation objet wallet
+    wallet0 = Wallet()
+    wallet0.generate_unique_id()
+    wallet0.save()
+    print(wallet0.unique_id)
+    wallet0.balance = 200
 
     # test methode load()
     wallet = Wallet()
     wallet.load("a7afe60a-a194-4e3a-855f-0a557e8de665")
     print(wallet.unique_id)
+    print(wallet.balance)
+    print(wallet.history)
 
     # test bloc generate_hash to implement !!!
     # bloc = Block()
@@ -27,8 +29,13 @@ def main():
 
     #test verify_hash
     chain = Chain()
+    print(chain.blocks)
     chain.add_block()
-    print(chain)
+    print(chain.last_transaction_number)
+    chain.generate_hash()
+
+
+
 
 
 if __name__ == "__main__":
