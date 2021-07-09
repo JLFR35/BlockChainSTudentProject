@@ -1,6 +1,5 @@
 import hashlib
 import json
-import os
 
 
 class Block:
@@ -39,5 +38,3 @@ class Block:
         self.parent_hash = json_file["parent"]
         self.transactions = json_file["transactions"]
         file.close()
-
-
