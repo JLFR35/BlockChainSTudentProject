@@ -1,5 +1,6 @@
 import hashlib
 import json
+import uuid
 
 
 class Block:
@@ -11,15 +12,17 @@ class Block:
         self.transactions = []
 
     def check_hash(self):
-        generated_hash = hashlib.sha256(str(self.base_hash).encode('utf-8')).hexdigest()
-        if generated_hash == self.hash:
+        hashed = hashlib.sha256(str(self.base_hash).encode('utf-8')).hexdigest()
+        if hashed == self.hash:
             return True
         else:
             return False
 
     def add_transaction(self, receiver_wallet, transmitter_wallet, amount):
-        transaction = {"receiver": receiver_wallet, "transmitter": transmitter_wallet, "amount": amount}
+        transaction_id = int(uuid.uuid4())
+        transaction = {"transaction_id": transaction_id, "receiver": receiver_wallet, "transmitter": transmitter_wallet, "amount": amount}
         self.transactions.append(transaction)
+        self.save()
 
     def get_weight(self):
         length = len("content/blocs/" + self.hash + ".json")
