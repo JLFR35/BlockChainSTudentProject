@@ -6,7 +6,7 @@ from classes.Block import Block
 
 class Chain:
 
-    def __init__(self, parent_hash):
+    def __init__(self):
         self.blocks = []
         self.last_transaction_number = 0
         self.hash = hash
@@ -14,7 +14,7 @@ class Chain:
         self.parent_bloc = "00"
 
     # à refaire
-    def generate_hash(self, hash):
+    def generate_hash(self):
         number = 0
         bloc_hashed = self.generate_string(number)
         while not self.verify_hash(bloc_hashed):
@@ -36,7 +36,7 @@ class Chain:
 
     def add_block(self):
         self.generate_hash()
-        block = Block()
+        block = Block(self.first_bloc, self.parent_bloc, [])
         self.blocks.append(block)
         block.save()
 
